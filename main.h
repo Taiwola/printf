@@ -1,44 +1,34 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef _MAIN_H
+#define _MAIN_H
 
-#include <limits.h>
-#include <stdarg.h>
-#include <stdlib.h>
 #include <unistd.h>
+#include <stdarg.h>
+#include <stdio.h>
+#include <limits.h>
 
 /**
- * struct specifier - struct specifier
- * @valid: the valid character.
- * @f: the functions associated.
+ * struct op - flag / function object
+ * @c: flag
+ * @f: function
  */
 
-typedef struct specifier
+typedef struct op
 {
-char *valid;
-int (*f)(va_list);
-}spec;
+  char *c;
+  int (*f)(va_list);
+} op_t;
 
 int _printf(const char *format, ...);
-int print_c(va_list args);
-int print_s(va_list args);
-int print_d(va_list args);
-int print_i(va_list args);
-int _putchar(char c)
-int print_percent(va_list args);
-int (*get_func(char x))(va_list args);
-
-unsigned int convert_c(va_list args, buffer_t *output, unsigned char flags, int wid, int prec, unsigned char len);
-unsigned int convert_s(va_list args, buffer_t *output, unsigned char flags, int wid, int prec, unsigned char len);
-unsigned int convert_di(va_list args, buffer_t *output, unsigned char flags, int wid, int prec, unsigned char len);
-unsigned int convert_percent(va_list args, buffer_t *output, unsigned char flags, int wid, int prec, unsigned char len);
-unsigned int convert_b(va_list args, buffer_t *output, unsigned char flags, int wid, int prec, unsigned char len);
-unsigned int convert_u(va_list args, buffer_t *output, unsigned char flags, int wid, int prec, unsigned char len);
-unsigned int convert_o(va_list args, buffer_t *output, unsigned char flags, int wid, int prec, unsigned char len);
-unsigned int convert_x(va_list args, buffer_t *output, unsigned char flags, int wid, int prec, unsigned char len);
-unsigned int convert_X(va_list args, buffer_t *output, unsigned char flags, int wid, int prec, unsigned char len);
-unsigned int convert_S(va_list args, buffer_t *output, unsigned char flags, int wid, int prec, unsigned char len);
-unsigned int convert_p(va_list args, buffer_t *output, unsigned char flags, int wid, int prec, unsigned char len);
-unsigned int convert_r(va_list args, buffer_t *output, unsigned char flags, int wid, int prec, unsigned char len);
-unsigned int convert_R(va_list args, buffer_t *output, unsigned char flags, int wid, int prec, unsigned char len);
+int _putchar(char c);
+int print_c(va_list ar_list);
+int (*get_func(char s))(va_list ar_list);
+int print_s(va_list ar_list);
+int print_d(va_list ar_list);
+int print_i(va_list ar_numlist);
+int print_b(va_list binary_list);
+int print_u(va_list ar_list);
+int print_o(va_list ar_list);
+int print_x(va_list ar_list);
+int print_X(va_list ar_list);
 
 #endif
