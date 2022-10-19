@@ -9,7 +9,7 @@ int _printf(const char *format, ...);
  * cleanup - Peforms cleanup operations for _printf.
  * @args: A va_list of arguments provided to _printf.
  * @output: A buffer_t struct.
-*/
+ */
 
 void cleanup(va_list args, buffer_t *output)
 {
@@ -24,7 +24,7 @@ void cleanup(va_list args, buffer_t *output)
  * @output: A buffer_t struct containing a buffer.
  * @args: A va_list of arguments.
  * Return: The number of characters
-*/
+ */
 
 int run_printf(const char *format, va_list args, buffer_t *output)
 {
@@ -70,7 +70,7 @@ int run_printf(const char *format, va_list args, buffer_t *output)
  * _printf - Output of the formatted string
  * @format: Character string to print
  * Return: The number of characters printed
-*/
+ */
 
 int _printf(const char *format, ...)
 {
@@ -94,7 +94,7 @@ int _printf(const char *format, ...)
  * _printf - main function to print in console
  * @format: array to print and check type
  * Return: count of character printed
- **/
+ */
 int _printf(const char *format, ...)
 {
 int count = -1;
